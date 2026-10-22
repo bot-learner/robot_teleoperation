@@ -1,0 +1,9 @@
+[submodule "pico_teleop_interface/robot_interfaces/a3_ultra/references/pinocchio"]
+	path = pico_teleop_interface/robot_interfaces/a3_ultra/references/pinocchio
+	url = https://github.com/stack-of-tasks/pinocchio.git
+[submodule "pico_teleop_interface/third_party/EgoHumanoid"]
+	path = pico_teleop_interface/third_party/EgoHumanoid
+	url = https://github.com/OpenDriveLab/EgoHumanoid.git
+[submodule "pico_teleop_interface/third_party/sonic_for_a3"]
+	path = pico_teleop_interface/third_party/sonic_for_a3
+	url = https://github.com/AgibotTech/sonic_for_a3.git

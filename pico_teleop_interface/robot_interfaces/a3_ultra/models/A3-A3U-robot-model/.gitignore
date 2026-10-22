@@ -1,0 +1,32 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# ROS / colcon / catkin build outputs
+build/
+devel/
+install/
+log/
+
+# Temporary / backup files
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# MuJoCo generated or local runtime files
+*.mjb
+*.log

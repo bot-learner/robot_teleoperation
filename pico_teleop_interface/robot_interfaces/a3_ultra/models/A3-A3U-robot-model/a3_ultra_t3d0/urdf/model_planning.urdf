@@ -1,0 +1,2724 @@
+<?xml version="1.0" ?>
+<robot name="A3U_t3d0_planning">
+  <material name="black">
+    <color rgba="0.0 0.0 0.0 1.0" />
+  </material>
+  <material name="blue">
+    <color rgba="0.0 0.0 0.8 1.0" />
+  </material>
+  <material name="green">
+    <color rgba="0.0 0.8 0.0 1.0" />
+  </material>
+  <material name="grey">
+    <color rgba="0.2 0.2 0.2 1.0" />
+  </material>
+  <material name="silver">
+    <color rgba="0.9137254901960784 0.9137254901960784 0.8470588235294118 1.0" />
+  </material>
+  <material name="orange">
+    <color rgba="1.0 0.4235294117647059 0.0392156862745098 1.0" />
+  </material>
+  <material name="brown">
+    <color rgba="0.8705882352941177 0.8117647058823529 0.7647058823529411 1.0" />
+  </material>
+  <material name="red">
+    <color rgba="0.8 0.0 0.0 1.0" />
+  </material>
+  <material name="white">
+    <color rgba="1.0 1.0 1.0 1.0" />
+  </material>
+  <link name="pelvis_link">
+    <inertial>
+      <origin xyz="-0.00090674 2.058e-05 -0.12728789" rpy="0 0 0" />
+      <mass value="4.86725331" />
+      <inertia ixx="0.02194473" ixy="2.2e-06" ixz="3.787e-05" iyy="0.01757488" iyz="1.476e-05" izz="0.01349901" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/pelvis_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.002 0.0006 -0.085" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.075" length="0.10" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.002 0.0006 -0.15" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <cylinder radius="0.085" length="0.176" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="waist_yaw_Link">
+    <inertial>
+      <origin xyz="0.0018168 -0.00204337 -0.02286188" rpy="0 0 0" />
+      <mass value="0.25877432" />
+      <inertia ixx="0.00018523" ixy="6.69e-06" ixz="1.053e-05" iyy="0.00023124" iyz="2.29e-06" izz="0.00036018" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/waist_yaw_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/waist_yaw_Link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint name="waist_yaw_joint" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="pelvis_link" />
+    <child link="waist_yaw_Link" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit lower="-2.6179938779914944" upper="2.6179938779914944" effort="220" velocity="12.042771838760874" />
+  </joint>
+  <link name="waist_roll_Link">
+    <inertial>
+      <origin xyz="-0.02 0 0.0024982" rpy="0 0 0" />
+      <mass value="0.18866939" />
+      <inertia ixx="2.952e-05" ixy="0" ixz="0" iyy="2.953e-05" iyz="0" izz="4.8e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/waist_roll_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/waist_roll_Link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint name="waist_roll_joint" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="waist_yaw_Link" />
+    <child link="waist_roll_Link" />
+    <axis xyz="1.0 0.0 0.0" />
+    <limit lower="-0.3490658503988659" upper="0.3490658503988659" effort="46" velocity="22.7" />
+  </joint>
+  <link name="torso_Link">
+    <inertial>
+      <origin xyz="0.01867143 -0.00035192 0.19896992" rpy="0 0 0" />
+      <mass value="18.09402396" />
+      <inertia ixx="0.23280752" ixy="-0.00160285" ixz="0.00446187" iyy="0.19107862" iyz="-1.475e-05" izz="0.13509565" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/torso_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.026 0 0.27" rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder radius="0.12" length="0.12" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.026 0.06 0.27" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.12" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.026 -0.06 0.27" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.12" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.026 0 0.32" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.1" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.052 0 0.24" rpy="0 -0.2 0" />
+      <geometry>
+        <box size="0.21 0.18 0.12" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.076 0.07 0.24" rpy="0 -0.2 0" />
+      <geometry>
+        <cylinder radius="0.08" length="0.13" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.076 -0.07 0.24" rpy="0 -0.2 0" />
+      <geometry>
+        <cylinder radius="0.08" length="0.13" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.01 -0.07 0.25" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.08" length="0.15" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.01 0.07 0.25" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.08" length="0.15" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.047 0 0.08" rpy="0 0.1 0" />
+      <geometry>
+        <box size="0.2 0.16 0.3" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.04 -0.1 0.08" rpy="0.05 0.1 0" />
+      <geometry>
+        <box size="0.1 0.08 0.25" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.065 -0.06 0.08" rpy="0.05 0.1 0" />
+      <geometry>
+        <cylinder radius="0.08" length="0.25" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.04 0.1 0.08" rpy="-0.05 0.1 0" />
+      <geometry>
+        <box size="0.1 0.08 0.25" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.065 0.06 0.08" rpy="-0.05 0.1 0" />
+      <geometry>
+        <cylinder radius="0.08" length="0.25" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.01 0.059 0.1" rpy="-0.05 0 0" />
+      <geometry>
+        <cylinder radius="0.08" length="0.25" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.01 -0.059 0.1" rpy="0.05 0 0" />
+      <geometry>
+        <cylinder radius="0.08" length="0.25" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.05 0.0 0.16" rpy="0 0 0" />
+      <geometry>
+        <box size="0.08 0.2 0.32" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="waist_pitch_joint" type="revolute">
+    <origin xyz="-0.02 0 0.005" rpy="0 0 0" />
+    <parent link="waist_roll_Link" />
+    <child link="torso_Link" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="-0.4886921905584123" upper="0.4188790204786391" effort="118" velocity="9.24785" />
+  </joint>
+  <link name="torso_shell_Link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/torso_shell_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/torso_shell_Link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint name="torso_shell_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="torso_Link" />
+    <child link="torso_shell_Link" />
+  </joint>
+  <link name="imu_in_torso_Link">
+    <inertial>
+      <origin xyz="0.00319251 0.01088 0.00140846" rpy="0 0 0" />
+      <mass value="0.02" />
+      <inertia ixx="2.86e-06" ixy="0" ixz="0" iyy="2.78e-06" iyz="0" izz="5.27e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/imu_in_torso_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/imu_in_torso_Link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint name="imu_in_torso_joint" type="fixed">
+    <origin xyz="0 0 0.11185" rpy="0 0 0" />
+    <parent link="torso_Link" />
+    <child link="imu_in_torso_Link" />
+  </joint>
+  <link name="head_yaw_Link">
+    <inertial>
+      <origin xyz="0.01035287 4.71e-06 0.14227165" rpy="0 0 0" />
+      <mass value="0.8" />
+      <inertia ixx="0.00123714" ixy="4e-08" ixz="-2.455e-05" iyy="0.00128889" iyz="6e-08" izz="0.00088936" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/head_yaw_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.17" rpy="0.0 -0.0 0.0" />
+      <geometry>
+        <cylinder radius="0.06" length="0.12" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="head_yaw_joint" type="revolute">
+    <origin xyz="0.0303 0 0.28896" rpy="0 0 0" />
+    <parent link="torso_Link" />
+    <child link="head_yaw_Link" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit lower="-1.0471975511965976" upper="1.0471975511965976" effort="6" velocity="12.775810124598491" />
+  </joint>
+  <link name="ultra_head_pitch_Link">
+    <inertial>
+      <origin xyz="0.03540176 3.601e-05 0.03858199" rpy="0 0 0" />
+      <mass value="1.672" />
+      <inertia ixx="0.00677916" ixy="5.58e-06" ixz="0.00104251" iyy="0.00810214" iyz="6.87e-06" izz="0.00718215" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/ultra_head_pitch_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.055 0 -0.03" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.065" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.05 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.075" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.01 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.085" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.015 0 0.045" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.095" length="0.03" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 0 0.045" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.095" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.03 0 0.045" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.095" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="ultra_head_pitch_joint" type="revolute">
+    <origin xyz="0 0 0.23063" rpy="0 0 0" />
+    <parent link="head_yaw_Link" />
+    <child link="ultra_head_pitch_Link" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="-0.4363323129985824" upper="0.2617993877991494" effort="6" velocity="12.775810124598491" />
+  </joint>
+  <link name="ultra_head_stereo_camera_Link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/ultra_head_stereo_camera_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/ultra_head_stereo_camera_Link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint name="ultra_head_stereo_camera_joint" type="fixed">
+    <origin xyz="0.0919825582208656 0 -0.0302207411626506" rpy="0 0.241209429948845 0" />
+    <parent link="ultra_head_pitch_Link" />
+    <child link="ultra_head_stereo_camera_Link" />
+  </joint>
+  <link name="ultra_head_fisheye_camera_left_Link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/ultra_head_fisheye_camera_left_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/ultra_head_fisheye_camera_left_Link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint name="ultra_head_fisheye_camera_left_joint" type="fixed">
+    <origin xyz="0.0150035360841172 0.07489976194252 0.0297028705940667" rpy="-0.0514108672262889 -0.0188992743027947 -0.0437102135661861" />
+    <parent link="ultra_head_pitch_Link" />
+    <child link="ultra_head_fisheye_camera_left_Link" />
+  </joint>
+  <link name="ultra_head_fisheye_camera_right_Link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/ultra_head_fisheye_camera_right_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/ultra_head_fisheye_camera_right_Link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint name="ultra_head_fisheye_camera_right_joint" type="fixed">
+    <origin xyz="0.0150035360639564 -0.0748997619425288 0.0297028706040139" rpy="0.0514116929184328 -0.0197300914132888 0.0436674542870696" />
+    <parent link="ultra_head_pitch_Link" />
+    <child link="ultra_head_fisheye_camera_right_Link" />
+  </joint>
+  <link name="ultra_head_fisheye_camera_back_Link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/ultra_head_fisheye_camera_back_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/ultra_head_fisheye_camera_back_Link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint name="ultra_head_fisheye_camera_back_joint" type="fixed">
+    <origin xyz="-0.078845195202418 0 0.0384247314841796" rpy="0 -0.133379281154304 0" />
+    <parent link="ultra_head_pitch_Link" />
+    <child link="ultra_head_fisheye_camera_back_Link" />
+  </joint>
+  <link name="ultra_head_mid360_Link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/ultra_head_mid360_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0 0 1 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/ultra_head_mid360_Link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint name="ultra_head_mid360_joint" type="fixed">
+    <origin xyz="0.0199258874260123 0 0.137544948520896" rpy="0 0 0" />
+    <parent link="head_yaw_Link" />
+    <child link="ultra_head_mid360_Link" />
+  </joint>
+  <link name="left_shoulder_pitch_Link">
+    <inertial>
+      <origin xyz="0.00096906 0.05477427 0.00016529" rpy="0 0 0" />
+      <mass value="1.01944747" />
+      <inertia ixx="0.00117939" ixy="9.14e-06" ixz="-1.69e-06" iyy="0.00095676" iyz="1.27e-06" izz="0.00098915" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/left_shoulder_pitch_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0.01 0" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <cylinder radius="0.08" length="0.03" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 0.06 0" rpy="0.0 1.5708 0.0" />
+      <geometry>
+        <cylinder radius="0.056" length="0.06" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 0.04 -0.03" rpy="0.1 0.0 0.0" />
+      <geometry>
+        <box size="0.06 0.06 0.056" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 0.04 0.032" rpy="-0.2 0.0 0.0" />
+      <geometry>
+        <box size="0.06 0.06 0.056" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_shoulder_pitch_joint" type="revolute">
+    <origin xyz="0.0303 0.148224512812617 0.283817906204843" rpy="0.0872664625997163 0 0" />
+    <parent link="torso_Link" />
+    <child link="left_shoulder_pitch_Link" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="-2.8797932657906435" upper="2.8797932657906435" effort="60" velocity="13.613568165555769" />
+  </joint>
+  <link name="left_shoulder_roll_Link">
+    <inertial>
+      <origin xyz="5.07e-06 0.00923692 -0.08658742" rpy="0 0 0" />
+      <mass value="0.89048605" />
+      <inertia ixx="0.0022639" ixy="1.002e-05" ixz="-5.81e-05" iyy="0.0025451" iyz="7.578e-05" izz="0.00114759" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/left_shoulder_roll_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.065" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 0.01 -0.08" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.058" length="0.15" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_shoulder_roll_joint" type="revolute">
+    <origin xyz="0 0.059 0" rpy="-0.0872664625997163 0 0" />
+    <parent link="left_shoulder_pitch_Link" />
+    <child link="left_shoulder_roll_Link" />
+    <axis xyz="1.0 0.0 0.0" />
+    <limit lower="-0.08726646259971647" upper="2.6179938779914944" effort="60" velocity="13.613568165555769" />
+  </joint>
+  <link name="left_shoulder_yaw_Link">
+    <inertial>
+      <origin xyz="0.00426502 -0.00144977 -0.08908275" rpy="0 0 0" />
+      <mass value="0.99955871" />
+      <inertia ixx="0.00324123" ixy="6.81e-06" ixz="0.0002366" iyy="0.00330866" iyz="-5.968e-05" izz="0.00087315" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/left_shoulder_yaw_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.065" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.053" length="0.14" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.01 0 -0.1325" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.053" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_shoulder_yaw_joint" type="revolute">
+    <origin xyz="0 0.01 -0.1475" rpy="0 0 0" />
+    <parent link="left_shoulder_roll_Link" />
+    <child link="left_shoulder_yaw_Link" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit lower="-2.792526803190927" upper="2.792526803190927" effort="24" velocity="15.707963267948966" />
+  </joint>
+  <link name="left_elbow_Link">
+    <inertial>
+      <origin xyz="0.07760115 -0.00121006 -0.01040959" rpy="0 0 0" />
+      <mass value="0.71204442" />
+      <inertia ixx="0.00054361" ixy="-6.353e-05" ixz="7.81e-06" iyy="0.00116393" iyz="3.73e-06" izz="0.00124093" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/left_elbow_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.053" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.07 0.001 -0.008" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.047" length="0.14" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_elbow_joint" type="revolute">
+    <origin xyz="0.01 0 -0.1325" rpy="0 0 0" />
+    <parent link="left_shoulder_yaw_Link" />
+    <child link="left_elbow_Link" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="-0.9599310885968813" upper="1.7453292519943295" effort="24" velocity="15.707963267948966" />
+  </joint>
+  <link name="left_wrist_roll_Link">
+    <inertial>
+      <origin xyz="0.02090141 -0.00032839 1.007e-05" rpy="0 0 0" />
+      <mass value="0.19185994" />
+      <inertia ixx="0.00015782" ixy="5.99e-06" ixz="-5e-08" iyy="0.00015659" iyz="-7e-08" izz="0.00019562" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/left_wrist_roll_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.04850631513550077 0.0006010454255084385 0.0002461484172788769" rpy="0.0 -1.5704428104792743 3.1415493564344734" />
+      <geometry>
+        <cylinder radius="0.039866995752177864" length="0.07532793147099662" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_wrist_roll_joint" type="revolute">
+    <origin xyz="0.129 0 -0.01" rpy="0 0 0" />
+    <parent link="left_elbow_Link" />
+    <child link="left_wrist_roll_Link" />
+    <axis xyz="1.0 0.0 0.0" />
+    <limit lower="-2.792526803190927" upper="2.792526803190927" effort="24" velocity="15.707963267948966" />
+  </joint>
+  <link name="left_wrist_pitch_Link">
+    <inertial>
+      <origin xyz="0.02282497 -0.00080274 -0.0007711" rpy="0 0 0" />
+      <mass value="0.56746364" />
+      <inertia ixx="0.00023414" ixy="-9.96e-06" ixz="9.84e-06" iyy="0.00051554" iyz="3.3e-07" izz="0.00051439" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/left_wrist_pitch_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder radius="0.03" length="0.056" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.045 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.03" length="0.056" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_wrist_pitch_joint" type="revolute">
+    <origin xyz="0.06 0 0" rpy="0 0 0" />
+    <parent link="left_wrist_roll_Link" />
+    <child link="left_wrist_pitch_Link" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="-1.6231562043547265" upper="1.6231562043547265" effort="6" velocity="12.775810124598491" />
+  </joint>
+  <link name="left_wrist_yaw_Link">
+    <inertial>
+      <origin xyz="0.02101656 6.725e-05 -0.00216659" rpy="0 0 0" />
+      <mass value="0.08067756" />
+      <inertia ixx="6.379e-05" ixy="-1.1e-07" ixz="-3e-06" iyy="8.865e-05" iyz="-1e-08" izz="4.623e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/left_wrist_yaw_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.028" length="0.075" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.024 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.048 0.056 0.075" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.033631 0.012761 0.102539" rpy="0.0826329174364269 0.315079635536688 -0.613940279021508" />
+      <geometry>
+        <box size="0.036220 0.054216 0.041621" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_wrist_yaw_joint" type="revolute">
+    <origin xyz="0.046 0 0" rpy="0 0 0" />
+    <parent link="left_wrist_pitch_Link" />
+    <child link="left_wrist_yaw_Link" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit lower="-1.6231562043547265" upper="1.6231562043547265" effort="6" velocity="12.775810124598491" />
+  </joint>
+  <link name="left_palm_Link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <sphere radius="0.02" />
+      </geometry>
+      <material name="red" />
+    </visual>
+  </link>
+  <joint name="left_palm_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.048 0 0" />
+    <parent link="left_wrist_yaw_Link" />
+    <child link="left_palm_Link" />
+  </joint>
+  <link name="L_palm">
+    <visual>
+      <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/l_palm.STL" />
+      </geometry>
+      <material name="silver" />
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0455754 0.0071151 0.0044599" />
+      <mass value="0.2175" />
+      <inertia ixx="0.00012494" ixy="2.03e-05" ixz="9.89e-06" iyy="0.00023334" iyz="-4.25e-06" izz="0.00020584" />
+    </inertial>
+    <collision>
+      <origin xyz="0.075 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.15 0.05 0.09" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.05 0.012 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.1 0.05 0.07" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.16 0.0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.06 0.04 0.09" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.045 -0.02 0.07" rpy="0 0 0" />
+      <geometry>
+        <box size="0.05 0.04 0.15" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="L_palm_joint" type="fixed">
+    <origin rpy="0.0 0.0 0.0" xyz="0 0 0" />
+    <parent link="left_palm_Link" />
+    <child link="L_palm" />
+  </joint>
+  <joint name="L_thumb_roll_joint" type="fixed">
+    <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0.046851 0 0.018529" />
+    <parent link="L_palm" />
+    <child link="L_thumb_roll_link" />
+  </joint>
+  <link name="L_thumb_roll_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/l_thumb_roll.STL" />
+      </geometry>
+      <material name="blue" />
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.018588 0.0062386 0.0002106" />
+      <mass value="0.0179" />
+      <inertia ixx="3.64e-06" ixy="5e-08" ixz="7e-08" iyy="2.68e-06" iyz="-6e-08" izz="1.76e-06" />
+    </inertial>
+  </link>
+  <joint name="L_thumb_abad_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.020033 -0.004292 0.00075" />
+    <parent link="L_thumb_roll_link" />
+    <child link="L_thumb_abad_link" />
+  </joint>
+  <link name="L_thumb_abad_link">
+    <visual>
+      <origin rpy="0 0 3.14" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/thumb_abad.STL" />
+      </geometry>
+      <material name="blue" />
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 -0.0120925 -0.0060829" />
+      <mass value="0.0061" />
+      <inertia ixx="1.21e-06" ixy="-0.0" ixz="-1e-08" iyy="9.8e-07" iyz="3e-08" izz="6e-07" />
+    </inertial>
+  </link>
+  <joint name="L_thumb_mcp_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 -0.0265 -0.0058001" />
+    <parent link="L_thumb_abad_link" />
+    <child link="L_thumb_mcp_link" />
+  </joint>
+  <link name="L_thumb_mcp_link">
+    <visual>
+      <origin rpy="0 0 3.14" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/thumb_mcp.STL" />
+      </geometry>
+      <material name="brown" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 -0.0065 0.00237" />
+      <geometry>
+        <box size="0.029 0.042 0.0325" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="-1.45e-05 -0.019045 0.0020161" />
+      <mass value="0.045" />
+      <inertia ixx="1.149e-05" ixy="-0.0" ixz="1e-08" iyy="5.16e-06" iyz="5.3e-07" izz="1.049e-05" />
+    </inertial>
+  </link>
+  <joint name="L_thumb_pip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 -0.036229 0.0026606" />
+    <parent link="L_thumb_mcp_link" />
+    <child link="L_thumb_pip_link" />
+  </joint>
+  <link name="L_thumb_pip_link">
+    <visual>
+      <origin rpy="0 0 3.14" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/thumb_pip.STL" />
+      </geometry>
+      <material name="white" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="0.2 0 0" xyz="0 -0.0116 -0.0032" />
+      <geometry>
+        <box size="0.019 0.035 0.0225" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0004121 -0.0066398 -0.0025675" />
+      <mass value="0.0284" />
+      <inertia ixx="4.53e-06" ixy="-1.2e-07" ixz="1.3e-07" iyy="2.5e-06" iyz="5.8e-07" izz="4e-06" />
+    </inertial>
+  </link>
+  <joint name="L_thumb_dip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 -0.026054 -0.008672" />
+    <parent link="L_thumb_pip_link" />
+    <child link="L_thumb_dip_link" />
+  </joint>
+  <link name="L_thumb_dip_link">
+    <visual>
+      <origin rpy="0 0 3.14" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/thumb_dip.STL" />
+      </geometry>
+      <material name="white" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="1.8 0 0" xyz="0 -0.0134 -0.0026" />
+      <geometry>
+        <cylinder length="0.023" radius="0.011" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0001343 -0.0104003 -0.0042117" />
+      <mass value="0.011" />
+      <inertia ixx="1.1e-06" ixy="-0.0" ixz="0.0" iyy="7.5e-07" iyz="1.9e-07" izz="1.01e-06" />
+    </inertial>
+  </link>
+  <joint name="L_thumb_tip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 -0.02311 -0.01374" />
+    <parent link="L_thumb_dip_link" />
+    <child link="L_thumb_tip" />
+  </joint>
+  <link name="L_thumb_tip">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <sphere radius="1e-3" />
+      </geometry>
+      <material name="white" />
+    </visual>
+  </link>
+  <joint name="L_index_abad_joint" type="fixed">
+    <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0.094423 0.00069782 0.026958" />
+    <parent link="L_palm" />
+    <child link="L_index_abad_link" />
+  </joint>
+  <link name="L_index_abad_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_abad.STL" />
+      </geometry>
+      <material name="green" />
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0009337 -2.37e-05 0.0063625" />
+      <mass value="0.0349" />
+      <inertia ixx="6.74e-06" ixy="0.0" ixz="-3.3e-07" iyy="7.81e-06" iyz="0.0" izz="2.37e-06" />
+    </inertial>
+  </link>
+  <joint name="L_index_pip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.001025 0 0.017575" />
+    <parent link="L_index_abad_link" />
+    <child link="L_index_pip_link" />
+  </joint>
+  <link name="L_index_pip_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_pip.STL" />
+      </geometry>
+      <material name="brown" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.014" />
+      <geometry>
+        <cylinder length="0.044" radius="0.01" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0009312 -9.8e-06 0.0120489" />
+      <mass value="0.0125" />
+      <inertia ixx="3.16e-06" ixy="0.0" ixz="-3.5e-07" iyy="3.23e-06" iyz="0.0" izz="6.3e-07" />
+    </inertial>
+  </link>
+  <joint name="L_index_dip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz=" -0.0014266  0 0.036" />
+    <parent link="L_index_pip_link" />
+    <child link="L_index_dip_link" />
+  </joint>
+  <link name="L_index_dip_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_dip.STL" />
+      </geometry>
+      <material name="orange" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.018" />
+      <geometry>
+        <cylinder length="0.034" radius="0.007" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0002904 4.82e-05 0.0167403" />
+      <mass value="0.0047" />
+      <inertia ixx="7.6e-07" ixy="0.0" ixz="2e-08" iyy="7.7e-07" iyz="0.0" izz="1.6e-07" />
+    </inertial>
+  </link>
+  <joint name="L_index_tip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.00131 0 0.03841" />
+    <parent link="L_index_dip_link" />
+    <child link="L_index_tip" />
+  </joint>
+  <link name="L_index_tip">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <sphere radius="1e-3" />
+      </geometry>
+      <material name="white" />
+    </visual>
+  </link>
+  <joint name="L_middle_abad_joint" type="fixed">
+    <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0.096423 0.0031978 0.0079501" />
+    <parent link="L_palm" />
+    <child link="L_middle_abad_link" />
+  </joint>
+  <link name="L_middle_abad_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_abad.STL" />
+      </geometry>
+      <material name="green" />
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0009337 -2.37e-05 0.0063625" />
+      <mass value="0.0349" />
+      <inertia ixx="6.74e-06" ixy="0.0" ixz="-3.3e-07" iyy="7.81e-06" iyz="0.0" izz="2.37e-06" />
+    </inertial>
+  </link>
+  <joint name="L_middle_pip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.001025 0 0.017575" />
+    <parent link="L_middle_abad_link" />
+    <child link="L_middle_pip_link" />
+  </joint>
+  <link name="L_middle_pip_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_pip.STL" />
+      </geometry>
+      <material name="brown" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.014" />
+      <geometry>
+        <cylinder length="0.044" radius="0.01" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0009312 -9.8e-06 0.0120489" />
+      <mass value="0.0125" />
+      <inertia ixx="3.16e-06" ixy="0.0" ixz="-3.5e-07" iyy="3.23e-06" iyz="0.0" izz="6.3e-07" />
+    </inertial>
+  </link>
+  <joint name="L_middle_dip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz=" -0.0014266  0 0.036" />
+    <parent link="L_middle_pip_link" />
+    <child link="L_middle_dip_link" />
+  </joint>
+  <link name="L_middle_dip_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_dip.STL" />
+      </geometry>
+      <material name="orange" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.018" />
+      <geometry>
+        <cylinder length="0.034" radius="0.007" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0002904 4.82e-05 0.0167403" />
+      <mass value="0.0047" />
+      <inertia ixx="7.6e-07" ixy="0.0" ixz="2e-08" iyy="7.7e-07" iyz="0.0" izz="1.6e-07" />
+    </inertial>
+  </link>
+  <joint name="L_middle_tip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.00131 0 0.03841" />
+    <parent link="L_middle_dip_link" />
+    <child link="L_middle_tip" />
+  </joint>
+  <link name="L_middle_tip">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <sphere radius="1e-3" />
+      </geometry>
+      <material name="white" />
+    </visual>
+  </link>
+  <joint name="L_ring_abad_joint" type="fixed">
+    <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0.094423 0.0021978 -0.01105" />
+    <parent link="L_palm" />
+    <child link="L_ring_abad_link" />
+  </joint>
+  <link name="L_ring_abad_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_abad.STL" />
+      </geometry>
+      <material name="green" />
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0009337 -2.37e-05 0.0063625" />
+      <mass value="0.0349" />
+      <inertia ixx="6.74e-06" ixy="0.0" ixz="-3.3e-07" iyy="7.81e-06" iyz="0.0" izz="2.37e-06" />
+    </inertial>
+  </link>
+  <joint name="L_ring_pip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.001025 0 0.017575" />
+    <parent link="L_ring_abad_link" />
+    <child link="L_ring_pip_link" />
+  </joint>
+  <link name="L_ring_pip_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_pip.STL" />
+      </geometry>
+      <material name="brown" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.014" />
+      <geometry>
+        <cylinder length="0.044" radius="0.01" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0009312 -9.8e-06 0.0120489" />
+      <mass value="0.0125" />
+      <inertia ixx="3.16e-06" ixy="0.0" ixz="-3.5e-07" iyy="3.23e-06" iyz="0.0" izz="6.3e-07" />
+    </inertial>
+  </link>
+  <joint name="L_ring_dip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz=" -0.0014266  0 0.036" />
+    <parent link="L_ring_pip_link" />
+    <child link="L_ring_dip_link" />
+  </joint>
+  <link name="L_ring_dip_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_dip.STL" />
+      </geometry>
+      <material name="orange" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.018" />
+      <geometry>
+        <cylinder length="0.034" radius="0.007" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0002904 4.82e-05 0.0167403" />
+      <mass value="0.0047" />
+      <inertia ixx="7.6e-07" ixy="0.0" ixz="2e-08" iyy="7.7e-07" iyz="0.0" izz="1.6e-07" />
+    </inertial>
+  </link>
+  <joint name="L_ring_tip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.00131 0 0.03841" />
+    <parent link="L_ring_dip_link" />
+    <child link="L_ring_tip" />
+  </joint>
+  <link name="L_ring_tip">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <sphere radius="1e-3" />
+      </geometry>
+      <material name="white" />
+    </visual>
+  </link>
+  <joint name="L_pinky_abad_joint" type="fixed">
+    <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0.089423 0.00069782 -0.03005" />
+    <parent link="L_palm" />
+    <child link="L_pinky_abad_link" />
+  </joint>
+  <link name="L_pinky_abad_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_abad.STL" />
+      </geometry>
+      <material name="green" />
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0009337 -2.37e-05 0.0063625" />
+      <mass value="0.0349" />
+      <inertia ixx="6.74e-06" ixy="0.0" ixz="-3.3e-07" iyy="7.81e-06" iyz="0.0" izz="2.37e-06" />
+    </inertial>
+  </link>
+  <joint name="L_pinky_pip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.001025 0 0.017575" />
+    <parent link="L_pinky_abad_link" />
+    <child link="L_pinky_pip_link" />
+  </joint>
+  <link name="L_pinky_pip_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_pip.STL" />
+      </geometry>
+      <material name="brown" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.014" />
+      <geometry>
+        <cylinder length="0.044" radius="0.01" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0009312 -9.8e-06 0.0120489" />
+      <mass value="0.0125" />
+      <inertia ixx="3.16e-06" ixy="0.0" ixz="-3.5e-07" iyy="3.23e-06" iyz="0.0" izz="6.3e-07" />
+    </inertial>
+  </link>
+  <joint name="L_pinky_dip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz=" -0.0014266  0 0.036" />
+    <parent link="L_pinky_pip_link" />
+    <child link="L_pinky_dip_link" />
+  </joint>
+  <link name="L_pinky_dip_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_dip.STL" />
+      </geometry>
+      <material name="orange" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.018" />
+      <geometry>
+        <cylinder length="0.034" radius="0.007" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0002904 4.82e-05 0.0167403" />
+      <mass value="0.0047" />
+      <inertia ixx="7.6e-07" ixy="0.0" ixz="2e-08" iyy="7.7e-07" iyz="0.0" izz="1.6e-07" />
+    </inertial>
+  </link>
+  <joint name="L_pinky_tip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.00131 0 0.03841" />
+    <parent link="L_pinky_dip_link" />
+    <child link="L_pinky_tip" />
+  </joint>
+  <link name="L_pinky_tip">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <sphere radius="1e-3" />
+      </geometry>
+      <material name="white" />
+    </visual>
+  </link>
+  <link name="left_hand_camera_Link">
+    <inertial>
+      <origin xyz="-0.0119975 0.0109735 -0.01707419" rpy="0 0 0" />
+      <mass value="0.16879512" />
+      <inertia ixx="0.00026599" ixy="2.003e-05" ixz="0.00011276" iyy="0.00029484" iyz="-2.978e-05" izz="0.00012498" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/left_hand_camera_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/left_hand_camera_Link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint name="left_hand_camera_joint" type="fixed">
+    <origin xyz="0.04 -0.007 0.095" rpy="0.0826329174364269 0.315079635536688 -0.613940279021508" />
+    <parent link="left_wrist_yaw_Link" />
+    <child link="left_hand_camera_Link" />
+  </joint>
+  <link name="right_shoulder_pitch_Link">
+    <inertial>
+      <origin xyz="0.00097159 -0.05477421 0.00018343" rpy="0 0 0" />
+      <mass value="1.0194192" />
+      <inertia ixx="0.00117933" ixy="-9.16e-06" ixz="-1.26e-06" iyy="0.0009566" iyz="-3.2e-07" izz="0.00098901" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/right_shoulder_pitch_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.01 0" rpy="1.5708 0.0 0.0" />
+      <geometry>
+        <cylinder radius="0.08" length="0.03" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 -0.06 0" rpy="0.0 -1.5708 0.0" />
+      <geometry>
+        <cylinder radius="0.056" length="0.06" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 -0.04 -0.03" rpy="-0.1 0.0 0.0" />
+      <geometry>
+        <box size="0.06 0.06 0.056" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 -0.04 0.032" rpy="0.2 0.0 0.0" />
+      <geometry>
+        <box size="0.06 0.06 0.056" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_shoulder_pitch_joint" type="revolute">
+    <origin xyz="0.0303 -0.148224512812557 0.283817906204843" rpy="-0.0872664625997163 0 0" />
+    <parent link="torso_Link" />
+    <child link="right_shoulder_pitch_Link" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="-2.8797932657906404" upper="2.8797932657906435" effort="60" velocity="13.613568165555769" />
+  </joint>
+  <link name="right_shoulder_roll_Link">
+    <inertial>
+      <origin xyz="0.00014979 -0.00929496 -0.08643444" rpy="0 0 0" />
+      <mass value="0.89016898" />
+      <inertia ixx="0.00225928" ixy="-7.09e-06" ixz="-5.62e-05" iyy="0.00254105" iyz="-7.466e-05" izz="0.00114848" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/right_shoulder_roll_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.065" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 -0.01 -0.08" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.058" length="0.15" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_shoulder_roll_joint" type="revolute">
+    <origin xyz="0 -0.059 0" rpy="0.0872664625997163 0 0" />
+    <parent link="right_shoulder_pitch_Link" />
+    <child link="right_shoulder_roll_Link" />
+    <axis xyz="1.0 0.0 0.0" />
+    <limit lower="-2.6179938779914944" upper="0.08726646259971647" effort="60" velocity="13.613568165555769" />
+  </joint>
+  <link name="right_shoulder_yaw_Link">
+    <inertial>
+      <origin xyz="0.00413428 0.00146128 -0.08953274" rpy="0 0 0" />
+      <mass value="0.99859942" />
+      <inertia ixx="0.00325711" ixy="-4.7e-06" ixz="0.00023406" iyy="0.00332422" iyz="6.214e-05" izz="0.00087263" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/right_shoulder_yaw_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.065" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.053" length="0.14" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.01 0 -0.1325" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.053" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_shoulder_yaw_joint" type="revolute">
+    <origin xyz="0 -0.01 -0.1475" rpy="0 0 0" />
+    <parent link="right_shoulder_roll_Link" />
+    <child link="right_shoulder_yaw_Link" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit lower="-2.792526803190927" upper="2.792526803190927" effort="24" velocity="15.707963267948966" />
+  </joint>
+  <link name="right_elbow_Link">
+    <inertial>
+      <origin xyz="0.07765463 0.00122539 -0.01032076" rpy="0 0 0" />
+      <mass value="0.71187773" />
+      <inertia ixx="0.0005446" ixy="6.262e-05" ixz="1.251e-05" iyy="0.00116013" iyz="-5.18e-06" izz="0.00123572" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/right_elbow_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.053" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.07 0.001 -0.008" rpy="0 1.5708 0" />
+      <geometry>
+        <cylinder radius="0.047" length="0.14" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_elbow_joint" type="revolute">
+    <origin xyz="0.01 0 -0.1325" rpy="0 0 0" />
+    <parent link="right_shoulder_yaw_Link" />
+    <child link="right_elbow_Link" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="-0.9599310885968813" upper="1.7453292519943295" effort="24" velocity="15.707963267948966" />
+  </joint>
+  <link name="right_wrist_roll_Link">
+    <inertial>
+      <origin xyz="0.02090141 0.00032839 -1.007e-05" rpy="0 0 0" />
+      <mass value="0.19185994" />
+      <inertia ixx="0.00015782" ixy="-5.99e-06" ixz="5e-08" iyy="0.00015659" iyz="-7e-08" izz="0.00019562" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/right_wrist_roll_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.049375208846896335 0.0006558141196815553 9.468221868689777e-05" rpy="3.141592653589793 -1.5704375550515517 0.00011331172428631385" />
+      <geometry>
+        <cylinder radius="0.03986695901840116" length="0.07533082488582804" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_wrist_roll_joint" type="revolute">
+    <origin xyz="0.129 0 -0.01" rpy="0 0 0" />
+    <parent link="right_elbow_Link" />
+    <child link="right_wrist_roll_Link" />
+    <axis xyz="1.0 0.0 0.0" />
+    <limit lower="-2.792526803190927" upper="2.792526803190927" effort="24" velocity="15.707963267948966" />
+  </joint>
+  <link name="right_wrist_pitch_Link">
+    <inertial>
+      <origin xyz="0.02282497 0.00080274 0.0007711" rpy="0 0 0" />
+      <mass value="0.56746364" />
+      <inertia ixx="0.00023414" ixy="9.96e-06" ixz="-9.84e-06" iyy="0.00051554" iyz="3.3e-07" izz="0.00051439" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/right_wrist_pitch_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder radius="0.03" length="0.056" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.045 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.03" length="0.056" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_wrist_pitch_joint" type="revolute">
+    <origin xyz="0.06 0 0" rpy="0 0 0" />
+    <parent link="right_wrist_roll_Link" />
+    <child link="right_wrist_pitch_Link" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="-1.6231562043547265" upper="1.6231562043547265" effort="6" velocity="12.775810124598491" />
+  </joint>
+  <link name="right_wrist_yaw_Link">
+    <inertial>
+      <origin xyz="0.02101656 -6.725e-05 0.00216659" rpy="0 0 0" />
+      <mass value="0.08067756" />
+      <inertia ixx="6.379e-05" ixy="1.1e-07" ixz="3e-06" iyy="8.865e-05" iyz="-1e-08" izz="4.623e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/right_wrist_yaw_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.028" length="0.075" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.024 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.048 0.056 0.075" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.033501 -0.013780 0.100415" rpy="-0.0826329174066548 0.31507963551711 0.613940279030736" />
+      <geometry>
+        <box size="0.036220 0.055357 0.037000" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_wrist_yaw_joint" type="revolute">
+    <origin xyz="0.046 0 0" rpy="0 0 0" />
+    <parent link="right_wrist_pitch_Link" />
+    <child link="right_wrist_yaw_Link" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit lower="-1.6231562043547265" upper="1.6231562043547265" effort="6" velocity="12.775810124598491" />
+  </joint>
+  <link name="right_palm_Link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <sphere radius="0.02" />
+      </geometry>
+      <material name="red" />
+    </visual>
+  </link>
+  <joint name="right_palm_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.048 0 0" />
+    <parent link="right_wrist_yaw_Link" />
+    <child link="right_palm_Link" />
+  </joint>
+  <link name="R_palm">
+    <visual>
+      <origin rpy="1.57079632679 0 1.57079632679" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/r_palm.STL" />
+      </geometry>
+      <material name="silver" />
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0455754 -0.0071151 0.0044599" />
+      <mass value="0.2175" />
+      <inertia ixx="0.00012494" ixy="-2.03e-05" ixz="9.89e-06" iyy="0.00023334" iyz="4.25e-06" izz="0.00020584" />
+    </inertial>
+    <collision>
+      <origin xyz="0.075 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.15 0.05 0.09" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.05 -0.012 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.1 0.05 0.07" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.16 0.0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.06 0.04 0.09" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.045 0.02 0.07" rpy="0 0 0" />
+      <geometry>
+        <box size="0.05 0.04 0.15" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="R_palm_joint" type="fixed">
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+    <parent link="right_palm_Link" />
+    <child link="R_palm" />
+  </joint>
+  <joint name="R_thumb_roll_joint" type="fixed">
+    <origin rpy="1.57079632679 0 1.57079632679" xyz="0.046851 0 0.018529" />
+    <parent link="R_palm" />
+    <child link="R_thumb_roll_link" />
+  </joint>
+  <link name="R_thumb_roll_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/r_thumb_roll.STL" />
+      </geometry>
+      <material name="blue" />
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.018588 -0.0062386 0.0002106" />
+      <mass value="0.0179" />
+      <inertia ixx="3.64e-06" ixy="-5e-08" ixz="7e-08" iyy="2.68e-06" iyz="6e-08" izz="1.76e-06" />
+    </inertial>
+  </link>
+  <joint name="R_thumb_abad_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.020033 0.004292 0.00075" />
+    <parent link="R_thumb_roll_link" />
+    <child link="R_thumb_abad_link" />
+  </joint>
+  <link name="R_thumb_abad_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/thumb_abad.STL" />
+      </geometry>
+      <material name="blue" />
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0 0.0120925 -0.0060829" />
+      <mass value="0.0061" />
+      <inertia ixx="1.21e-06" ixy="0.0" ixz="-1e-08" iyy="9.8e-07" iyz="-3e-08" izz="6e-07" />
+    </inertial>
+  </link>
+  <joint name="R_thumb_mcp_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.0265 -0.0058001" />
+    <parent link="R_thumb_abad_link" />
+    <child link="R_thumb_mcp_link" />
+  </joint>
+  <link name="R_thumb_mcp_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/thumb_mcp.STL" />
+      </geometry>
+      <material name="brown" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 0.0065 0.00237" />
+      <geometry>
+        <box size="0.029 0.042 0.0325" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="-1.45e-05 0.019045 0.0020161" />
+      <mass value="0.045" />
+      <inertia ixx="1.149e-05" ixy="0.0" ixz="1e-08" iyy="5.16e-06" iyz="-5.3e-07" izz="1.049e-05" />
+    </inertial>
+  </link>
+  <joint name="R_thumb_pip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.036229 0.0026606" />
+    <parent link="R_thumb_mcp_link" />
+    <child link="R_thumb_pip_link" />
+  </joint>
+  <link name="R_thumb_pip_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/thumb_pip.STL" />
+      </geometry>
+      <material name="white" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="-0.2 0 0" xyz="0 0.0116 -0.0032" />
+      <geometry>
+        <box size="0.019 0.035 0.0225" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0004121 0.0066398 -0.0025675" />
+      <mass value="0.0284" />
+      <inertia ixx="4.53e-06" ixy="1.2e-07" ixz="1.3e-07" iyy="2.5e-06" iyz="-5.8e-07" izz="4e-06" />
+    </inertial>
+  </link>
+  <joint name="R_thumb_dip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.026054 -0.008672" />
+    <parent link="R_thumb_pip_link" />
+    <child link="R_thumb_dip_link" />
+  </joint>
+  <link name="R_thumb_dip_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/thumb_dip.STL" />
+      </geometry>
+      <material name="white" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="-1.8 0 0" xyz="0 0.0134 -0.0026" />
+      <geometry>
+        <cylinder length="0.023" radius="0.011" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0001343 0.0104003 -0.0042117" />
+      <mass value="0.011" />
+      <inertia ixx="1.1e-06" ixy="0.0" ixz="0.0" iyy="7.5e-07" iyz="-1.9e-07" izz="1.01e-06" />
+    </inertial>
+  </link>
+  <joint name="R_thumb_tip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.02311 -0.01374" />
+    <parent link="R_thumb_dip_link" />
+    <child link="R_thumb_tip" />
+  </joint>
+  <link name="R_thumb_tip">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <sphere radius="1e-3" />
+      </geometry>
+      <material name="white" />
+    </visual>
+  </link>
+  <joint name="R_index_abad_joint" type="fixed">
+    <origin rpy="1.57079632679 0 1.57079632679" xyz="0.094423 -0.00069782 0.026958" />
+    <parent link="R_palm" />
+    <child link="R_index_abad_link" />
+  </joint>
+  <link name="R_index_abad_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_abad.STL" />
+      </geometry>
+      <material name="green" />
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0009337 -2.37e-05 0.0063625" />
+      <mass value="0.0349" />
+      <inertia ixx="6.74e-06" ixy="0.0" ixz="-3.3e-07" iyy="7.81e-06" iyz="0.0" izz="2.37e-06" />
+    </inertial>
+  </link>
+  <joint name="R_index_pip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.001025 0 0.017575" />
+    <parent link="R_index_abad_link" />
+    <child link="R_index_pip_link" />
+  </joint>
+  <link name="R_index_pip_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_pip.STL" />
+      </geometry>
+      <material name="brown" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.014" />
+      <geometry>
+        <cylinder length="0.044" radius="0.01" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0009312 -9.8e-06 0.0120489" />
+      <mass value="0.0125" />
+      <inertia ixx="3.16e-06" ixy="0.0" ixz="-3.5e-07" iyy="3.23e-06" iyz="0.0" izz="6.3e-07" />
+    </inertial>
+  </link>
+  <joint name="R_index_dip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz=" -0.0014266  0 0.036" />
+    <parent link="R_index_pip_link" />
+    <child link="R_index_dip_link" />
+  </joint>
+  <link name="R_index_dip_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_dip.STL" />
+      </geometry>
+      <material name="orange" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.018" />
+      <geometry>
+        <cylinder length="0.034" radius="0.007" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0002904 4.82e-05 0.0167403" />
+      <mass value="0.0047" />
+      <inertia ixx="7.6e-07" ixy="0.0" ixz="2e-08" iyy="7.7e-07" iyz="0.0" izz="1.6e-07" />
+    </inertial>
+  </link>
+  <joint name="R_index_tip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.00131 0 0.03841" />
+    <parent link="R_index_dip_link" />
+    <child link="R_index_tip" />
+  </joint>
+  <link name="R_index_tip">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <sphere radius="1e-3" />
+      </geometry>
+      <material name="white" />
+    </visual>
+  </link>
+  <joint name="R_middle_abad_joint" type="fixed">
+    <origin rpy="1.57079632679 0 1.57079632679" xyz="0.096423 -0.0031978 0.0079501" />
+    <parent link="R_palm" />
+    <child link="R_middle_abad_link" />
+  </joint>
+  <link name="R_middle_abad_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_abad.STL" />
+      </geometry>
+      <material name="green" />
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0009337 -2.37e-05 0.0063625" />
+      <mass value="0.0349" />
+      <inertia ixx="6.74e-06" ixy="0.0" ixz="-3.3e-07" iyy="7.81e-06" iyz="0.0" izz="2.37e-06" />
+    </inertial>
+  </link>
+  <joint name="R_middle_pip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.001025 0 0.017575" />
+    <parent link="R_middle_abad_link" />
+    <child link="R_middle_pip_link" />
+  </joint>
+  <link name="R_middle_pip_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_pip.STL" />
+      </geometry>
+      <material name="brown" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.014" />
+      <geometry>
+        <cylinder length="0.044" radius="0.01" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0009312 -9.8e-06 0.0120489" />
+      <mass value="0.0125" />
+      <inertia ixx="3.16e-06" ixy="0.0" ixz="-3.5e-07" iyy="3.23e-06" iyz="0.0" izz="6.3e-07" />
+    </inertial>
+  </link>
+  <joint name="R_middle_dip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz=" -0.0014266  0 0.036" />
+    <parent link="R_middle_pip_link" />
+    <child link="R_middle_dip_link" />
+  </joint>
+  <link name="R_middle_dip_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_dip.STL" />
+      </geometry>
+      <material name="orange" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.018" />
+      <geometry>
+        <cylinder length="0.034" radius="0.007" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0002904 4.82e-05 0.0167403" />
+      <mass value="0.0047" />
+      <inertia ixx="7.6e-07" ixy="0.0" ixz="2e-08" iyy="7.7e-07" iyz="0.0" izz="1.6e-07" />
+    </inertial>
+  </link>
+  <joint name="R_middle_tip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.00131 0 0.03841" />
+    <parent link="R_middle_dip_link" />
+    <child link="R_middle_tip" />
+  </joint>
+  <link name="R_middle_tip">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <sphere radius="1e-3" />
+      </geometry>
+      <material name="white" />
+    </visual>
+  </link>
+  <joint name="R_ring_abad_joint" type="fixed">
+    <origin rpy="1.57079632679 0 1.57079632679" xyz="0.094423 -0.0021978 -0.01105" />
+    <parent link="R_palm" />
+    <child link="R_ring_abad_link" />
+  </joint>
+  <link name="R_ring_abad_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_abad.STL" />
+      </geometry>
+      <material name="green" />
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0009337 -2.37e-05 0.0063625" />
+      <mass value="0.0349" />
+      <inertia ixx="6.74e-06" ixy="0.0" ixz="-3.3e-07" iyy="7.81e-06" iyz="0.0" izz="2.37e-06" />
+    </inertial>
+  </link>
+  <joint name="R_ring_pip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.001025 0 0.017575" />
+    <parent link="R_ring_abad_link" />
+    <child link="R_ring_pip_link" />
+  </joint>
+  <link name="R_ring_pip_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_pip.STL" />
+      </geometry>
+      <material name="brown" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.014" />
+      <geometry>
+        <cylinder length="0.044" radius="0.01" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0009312 -9.8e-06 0.0120489" />
+      <mass value="0.0125" />
+      <inertia ixx="3.16e-06" ixy="0.0" ixz="-3.5e-07" iyy="3.23e-06" iyz="0.0" izz="6.3e-07" />
+    </inertial>
+  </link>
+  <joint name="R_ring_dip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz=" -0.0014266  0 0.036" />
+    <parent link="R_ring_pip_link" />
+    <child link="R_ring_dip_link" />
+  </joint>
+  <link name="R_ring_dip_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_dip.STL" />
+      </geometry>
+      <material name="orange" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.018" />
+      <geometry>
+        <cylinder length="0.034" radius="0.007" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0002904 4.82e-05 0.0167403" />
+      <mass value="0.0047" />
+      <inertia ixx="7.6e-07" ixy="0.0" ixz="2e-08" iyy="7.7e-07" iyz="0.0" izz="1.6e-07" />
+    </inertial>
+  </link>
+  <joint name="R_ring_tip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.00131 0 0.03841" />
+    <parent link="R_ring_dip_link" />
+    <child link="R_ring_tip" />
+  </joint>
+  <link name="R_ring_tip">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <sphere radius="1e-3" />
+      </geometry>
+      <material name="white" />
+    </visual>
+  </link>
+  <joint name="R_pinky_abad_joint" type="fixed">
+    <origin rpy="1.57079632679 0 1.57079632679" xyz="0.089423 -0.00069782 -0.03005" />
+    <parent link="R_palm" />
+    <child link="R_pinky_abad_link" />
+  </joint>
+  <link name="R_pinky_abad_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_abad.STL" />
+      </geometry>
+      <material name="green" />
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0009337 -2.37e-05 0.0063625" />
+      <mass value="0.0349" />
+      <inertia ixx="6.74e-06" ixy="0.0" ixz="-3.3e-07" iyy="7.81e-06" iyz="0.0" izz="2.37e-06" />
+    </inertial>
+  </link>
+  <joint name="R_pinky_pip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.001025 0 0.017575" />
+    <parent link="R_pinky_abad_link" />
+    <child link="R_pinky_pip_link" />
+  </joint>
+  <link name="R_pinky_pip_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_pip.STL" />
+      </geometry>
+      <material name="brown" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.014" />
+      <geometry>
+        <cylinder length="0.044" radius="0.01" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0009312 -9.8e-06 0.0120489" />
+      <mass value="0.0125" />
+      <inertia ixx="3.16e-06" ixy="0.0" ixz="-3.5e-07" iyy="3.23e-06" iyz="0.0" izz="6.3e-07" />
+    </inertial>
+  </link>
+  <joint name="R_pinky_dip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz=" -0.0014266  0 0.036" />
+    <parent link="R_pinky_pip_link" />
+    <child link="R_pinky_dip_link" />
+  </joint>
+  <link name="R_pinky_dip_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/finger_dip.STL" />
+      </geometry>
+      <material name="orange" />
+    </visual>
+    <!-- <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.018" />
+      <geometry>
+        <cylinder length="0.034" radius="0.007" />
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0002904 4.82e-05 0.0167403" />
+      <mass value="0.0047" />
+      <inertia ixx="7.6e-07" ixy="0.0" ixz="2e-08" iyy="7.7e-07" iyz="0.0" izz="1.6e-07" />
+    </inertial>
+  </link>
+  <joint name="R_pinky_tip_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.00131 0 0.03841" />
+    <parent link="R_pinky_dip_link" />
+    <child link="R_pinky_tip" />
+  </joint>
+  <link name="R_pinky_tip">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <sphere radius="1e-3" />
+      </geometry>
+      <material name="white" />
+    </visual>
+  </link>
+  <link name="right_hand_camera_Link">
+    <inertial>
+      <origin xyz="-0.01213262 -0.01099643 -0.02044572" rpy="0 0 0" />
+      <mass value="0.16772708" />
+      <inertia ixx="0.00024655" ixy="-1.989e-05" ixz="0.00010665" iyy="0.00027487" iyz="2.903e-05" izz="0.0001243" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/right_hand_camera_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/right_hand_camera_Link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint name="right_hand_camera_joint" type="fixed">
+    <origin xyz="0.04 0.007 0.095" rpy="-0.0826329174066548 0.31507963551711 0.613940279030736" />
+    <parent link="right_wrist_yaw_Link" />
+    <child link="right_hand_camera_Link" />
+  </joint>
+  <link name="D457_in_torso_Link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/D457_in_torso_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/D457_in_torso_Link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint name="D457_in_torso_joint" type="fixed">
+    <origin xyz="0.148942365217947 4.25892808163051E-05 0.215260754924945" rpy="0 0.698131739779724 0" />
+    <parent link="torso_Link" />
+    <child link="D457_in_torso_Link" />
+  </joint>
+  <link name="D415_in_torso_Link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/D415_in_torso_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/D415_in_torso_Link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint name="D415_in_torso_joint" type="fixed">
+    <origin xyz="0.124480946106383 0 -0.0322504622882431" rpy="0 1.13446401379144 0" />
+    <parent link="torso_Link" />
+    <child link="D415_in_torso_Link" />
+  </joint>
+  <link name="senyun_in_torso_Link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/senyun_in_torso_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/senyun_in_torso_Link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint name="senyun_in_torso_joint" type="fixed">
+    <origin xyz="0.0302999999991496 -0.137203916977493 0.187745894474438" rpy="0.226892802759255 0 0" />
+    <parent link="torso_Link" />
+    <child link="senyun_in_torso_Link" />
+  </joint>
+  <link name="imu_in_pelvis_Link">
+    <inertial>
+      <origin xyz="-0.00319251 0.01088 -0.00140846" rpy="0 0 0" />
+      <mass value="0.02" />
+      <inertia ixx="2.86e-06" ixy="0" ixz="0" iyy="2.78e-06" iyz="0" izz="5.27e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/imu_in_pelvis_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/imu_in_pelvis_Link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint name="imu_in_pelvis_joint" type="fixed">
+    <origin xyz="0.00437000000055574 0 -0.211649999998792" rpy="0 0 0" />
+    <parent link="pelvis_link" />
+    <child link="imu_in_pelvis_Link" />
+  </joint>
+  <link name="left_hip_pitch_Link">
+    <inertial>
+      <origin xyz="0.00711378 0.00508134 -0.03613248" rpy="0 0 0" />
+      <mass value="1.93710236" />
+      <inertia ixx="0.00375866" ixy="-8.41e-05" ixz="9.086e-05" iyy="0.00289188" iyz="0.0004749" izz="0.00245992" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/left_hip_pitch_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0.01 -0.043" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.07" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 -0.03 -0.01" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.07" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 -0.06 0.005" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.07" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_hip_pitch_joint" type="revolute">
+    <origin xyz="0 0.122982962907307 -0.178753185592275" rpy="-0.261799387796752 0 0" />
+    <parent link="pelvis_link" />
+    <child link="left_hip_pitch_Link" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="-2.5132741228718345" upper="2.9321531433504737" effort="220" velocity="12.042771838760874" />
+  </joint>
+  <link name="left_hip_roll_Link">
+    <inertial>
+      <origin xyz="-0.0039087 -0.0002776 -0.03199371" rpy="0 0 0" />
+      <mass value="0.83837582" />
+      <inertia ixx="0.00206269" ixy="7.49e-06" ixz="-2.518e-05" iyy="0.00282978" iyz="-6.705e-05" izz="0.00254548" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/left_hip_roll_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.08" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 0 -0.043" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.08" length="0.086" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_hip_roll_joint" type="revolute">
+    <origin xyz="0 0.0113162873210235 -0.0422329592212282" rpy="0.261799387796752 0 0" />
+    <parent link="left_hip_pitch_Link" />
+    <child link="left_hip_roll_Link" />
+    <axis xyz="1.0 0.0 0.0" />
+    <limit lower="-0.5235987755982988" upper="1.4835298641951802" effort="220" velocity="12.042771838760874" />
+  </joint>
+  <link name="left_hip_yaw_Link">
+    <inertial>
+      <origin xyz="0.00550427 -0.00070281 -0.18083694" rpy="0 0 0" />
+      <mass value="2.85040475" />
+      <inertia ixx="0.03109907" ixy="1.27e-06" ixz="0.00167883" iyy="0.03107076" iyz="-0.00043525" izz="0.006295" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/left_hip_yaw_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.006 0 -0.23" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.08" length="0.3" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.006 0 -0.37" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.08" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_hip_yaw_joint" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="left_hip_roll_Link" />
+    <child link="left_hip_yaw_Link" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit lower="-2.722713633111154" upper="2.722713633111154" effort="220" velocity="12.042771838760874" />
+  </joint>
+  <link name="left_knee_Link">
+    <inertial>
+      <origin xyz="0.00232523 -0.00081952 -0.11643077" rpy="0 0 0" />
+      <mass value="5.37308596" />
+      <inertia ixx="0.09363045" ixy="-0.00012893" ixz="-0.00264403" iyy="0.09541681" iyz="0.00061662" izz="0.00838827" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/left_knee_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.08" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.005 0 -0.2" rpy="0 0 0" />
+      <geometry>
+        <box size="0.156 0.12 0.35" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_knee_joint" type="revolute">
+    <origin xyz="0 0 -0.369999999999994" rpy="0 0 0" />
+    <parent link="left_hip_yaw_Link" />
+    <child link="left_knee_Link" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="-0.12217304763960307" upper="2.530727415391778" effort="320" velocity="14.660765716752367" />
+  </joint>
+  <link name="left_knee_shell_Link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/left_knee_shell_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/left_knee_shell_Link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint name="left_knee_shell_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="left_knee_Link" />
+    <child link="left_knee_shell_Link" />
+  </joint>
+  <link name="left_ankle_pitch_Link">
+    <inertial>
+      <origin xyz="0.00253567 -0.00150001 0.00014135" rpy="0 0 0" />
+      <mass value="0.12775778" />
+      <inertia ixx="1.628e-05" ixy="0" ixz="5e-08" iyy="3.55e-05" iyz="0" izz="4.431e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/left_ankle_pitch_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/left_ankle_pitch_Link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint name="left_ankle_pitch_joint" type="revolute">
+    <origin xyz="0 0.00150000000138217 -0.414999999999997" rpy="0 0 0" />
+    <parent link="left_knee_Link" />
+    <child link="left_ankle_pitch_Link" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="-0.9075712110370514" upper="0.5235987755982988" effort="118.2" velocity="10.8" />
+  </joint>
+  <link name="left_ankle_roll_Link">
+    <inertial>
+      <origin xyz="0.02828462 -0.00151669 -0.04926788" rpy="0 0 0" />
+      <mass value="0.74705569" />
+      <inertia ixx="0.00071744" ixy="-1.28e-06" ixz="0.00026101" iyy="0.00367379" iyz="2.4e-07" izz="0.00379107" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/left_ankle_roll_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.01 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.06" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.05 0 -0.029" rpy="0 0 0" />
+      <geometry>
+        <box size="0.164 0.12 0.08" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.132 0 -0.029" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.06" length="0.08" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.032 0 -0.029" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.06" length="0.08" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_ankle_roll_joint" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="left_ankle_pitch_Link" />
+    <child link="left_ankle_roll_Link" />
+    <axis xyz="1.0 0.0 0.0" />
+    <limit lower="-0.3490658503988659" upper="0.3490658503988659" effort="54.75" velocity="19.37" />
+  </joint>
+  <link name="right_hip_pitch_Link">
+    <inertial>
+      <origin xyz="0.00718637 -0.00469441 -0.03591514" rpy="0 0 0" />
+      <mass value="1.93952677" />
+      <inertia ixx="0.00378247" ixy="8.427e-05" ixz="9.038e-05" iyy="0.00289856" iyz="-0.00049521" izz="0.00247996" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/right_hip_pitch_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.1 0.1 0.1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.01 -0.043" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.07" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 0.03 -0.01" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.07" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 0.06 0.005" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.07" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_hip_pitch_joint" type="revolute">
+    <origin xyz="0 -0.122982962906483 -0.178753185592622" rpy="0.261799387800366 0 0" />
+    <parent link="pelvis_link" />
+    <child link="right_hip_pitch_Link" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="-2.5132741228718345" upper="2.9321531433504737" effort="220" velocity="12.042771838760874" />
+  </joint>
+  <link name="right_hip_roll_Link">
+    <inertial>
+      <origin xyz="-0.00244781 0.0002798 -0.03214234" rpy="0 0 0" />
+      <mass value="0.8513724" />
+      <inertia ixx="0.00208935" ixy="-8.81e-06" ixz="-3.426e-05" iyy="0.00287147" iyz="6.706e-05" izz="0.00257268" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/right_hip_roll_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.08" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 0 -0.043" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.08" length="0.086" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_hip_roll_joint" type="revolute">
+    <origin xyz="-0.00109999056710738 -0.0113162873211849 -0.042232959221232" rpy="-0.261799387800366 0 0" />
+    <parent link="right_hip_pitch_Link" />
+    <child link="right_hip_roll_Link" />
+    <axis xyz="1.0 0.0 0.0" />
+    <limit lower="-1.4835298641951802" upper="0.5235987755982988" effort="220" velocity="12.042771838760874" />
+  </joint>
+  <link name="right_hip_yaw_Link">
+    <inertial>
+      <origin xyz="0.00666995 0.00071337 -0.1807183" rpy="0 0 0" />
+      <mass value="2.84867849" />
+      <inertia ixx="0.03100193" ixy="-1.072e-05" ixz="0.00172348" iyy="0.03097155" iyz="0.00045088" izz="0.0062877" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/right_hip_yaw_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.006 0 -0.23" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.08" length="0.3" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.006 0 -0.37" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.08" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_hip_yaw_joint" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="right_hip_roll_Link" />
+    <child link="right_hip_yaw_Link" />
+    <axis xyz="0.0 0.0 1.0" />
+    <limit lower="-2.722713633111154" upper="2.722713633111154" effort="220" velocity="12.042771838760874" />
+  </joint>
+  <link name="right_knee_Link">
+    <inertial>
+      <origin xyz="0.00367243 0.00090455 -0.11645989" rpy="0 0 0" />
+      <mass value="5.37090912" />
+      <inertia ixx="0.09401869" ixy="0.00011037" ixz="-0.0027383" iyy="0.09580166" iyz="-0.00059599" izz="0.00837271" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/right_knee_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.08" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.005 0 -0.2" rpy="0 0 0" />
+      <geometry>
+        <box size="0.156 0.12 0.35" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_knee_joint" type="revolute">
+    <origin xyz="0 0 -0.369999999999993" rpy="0 0 0" />
+    <parent link="right_hip_yaw_Link" />
+    <child link="right_knee_Link" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="-0.12217304763960307" upper="2.530727415391778" effort="320" velocity="14.660765716752367" />
+  </joint>
+  <link name="right_knee_shell_Link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/right_knee_shell_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/right_knee_shell_Link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint name="right_knee_shell_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="right_knee_Link" />
+    <child link="right_knee_shell_Link" />
+  </joint>
+  <link name="right_ankle_pitch_Link">
+    <inertial>
+      <origin xyz="0.00366571 0.00149999 0.00014153" rpy="0 0 0" />
+      <mass value="0.12775778" />
+      <inertia ixx="1.628e-05" ixy="0" ixz="5e-08" iyy="3.55e-05" iyz="0" izz="4.431e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/right_ankle_pitch_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/right_ankle_pitch_Link.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint name="right_ankle_pitch_joint" type="revolute">
+    <origin xyz="0 -0.001499999998404 -0.415000000000001" rpy="0 0 0" />
+    <parent link="right_knee_Link" />
+    <child link="right_ankle_pitch_Link" />
+    <axis xyz="0.0 1.0 0.0" />
+    <limit lower="-0.9075712110370514" upper="0.5235987755982988" effort="118.2" velocity="10.8" />
+  </joint>
+  <link name="right_ankle_roll_Link">
+    <inertial>
+      <origin xyz="0.02941824 0.00148331 -0.04926583" rpy="0 0 0" />
+      <mass value="0.74705569" />
+      <inertia ixx="0.0007174" ixy="-1.28e-06" ixz="0.00026079" iyy="0.00367379" iyz="2.4e-07" izz="0.00379111" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_descriptions/models/a3_ultra_t3d0/meshes/right_ankle_roll_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.945 0.867 0.725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.01 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.06" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.05 0 -0.029" rpy="0 0 0" />
+      <geometry>
+        <box size="0.164 0.12 0.08" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.132 0 -0.029" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.06" length="0.08" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.032 0 -0.029" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.06" length="0.08" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_ankle_roll_joint" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="right_ankle_pitch_Link" />
+    <child link="right_ankle_roll_Link" />
+    <axis xyz="1.0 0.0 0.0" />
+    <limit lower="-0.3490658503988659" upper="0.3490658503988659" effort="54.75" velocity="19.37" />
+  </joint>
+</robot>

@@ -1,0 +1,101 @@
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+.venv_*/
+venv/
+env/
+
+# Editors and operating-system files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs, runtime state and temporary files
+*.log
+*.jsonl
+*.jsonl.*
+logs/
+tmp/
+temp/
+*.tmp
+*.pid
+core
+core.*
+
+# Python/CMake/ROS build products
+build/
+dist/
+devel/
+install/
+log/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.egg-info/
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.so.*
+*.dll
+*.dylib
+*.exe
+
+# Downloaded installers and archives
+*.apk
+*.deb
+*.rpm
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+
+# low_level_motion_control: ignore both the archive and extracted tree
+**/low_level_motion_control.zip
+**/low_level_motion_control/
+
+# Nested repositories and locally installed third-party dependencies
+**/.git/
+pico_teleop_interface/third_party/sonic_for_a3/.venv_cpu/
+pico_teleop_interface/third_party/XRoboToolkit-PC-Service-Pybind/vendor/
+pico_teleop_interface/third_party/sonic_for_a3/external_dependencies/XRoboToolkit-PC-Service-Pybind_X86_and_ARM64/
+
+# Large SONIC assets and generated reports
+pico_teleop_interface/third_party/sonic_for_a3/checkpoints/
+pico_teleop_interface/third_party/sonic_for_a3/a3_data/
+pico_teleop_interface/third_party/sonic_for_a3/media/
+pico_teleop_interface/third_party/sonic_for_a3/site/
+pico_teleop_interface/third_party/sonic_for_a3/docs/a3_024_sim2real_materials/03_passive_foot/figures/
+pico_teleop_interface/third_party/sonic_for_a3/docs/a3_024_sim2real_materials/03_passive_foot/raw/
+
+# Model/checkpoint binaries larger than the repository's 0.5 MiB policy
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.rknn
+*.engine
+*.tflite
+*.mp4
+*.avi
+*.mov
+
+# Current robot mesh files exceed 0.5 MiB. Gitignore cannot filter by size,
+# so the mesh extensions are ignored as a group.
+*.STL
+*.stl

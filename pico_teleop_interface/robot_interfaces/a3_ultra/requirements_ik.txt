@@ -1,0 +1,8 @@
+# PyPI 包名是 pin，Python 导入名是 pinocchio。
+pin>=3.8,<4
+numpy>=1.26
+mujoco>=3.1,<4
+# 双臂离线路径规划（RRT-Connect）。
+ompl>=2.0,<3
+# 贴身起点脱离阶段的小步约束优化。
+scipy>=1.11

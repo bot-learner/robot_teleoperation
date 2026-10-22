@@ -1,0 +1,4 @@
+<mujoco model="flat">
+  <!-- Empty scene fragment: no ground, lights, or objects. -->
+  <worldbody/>
+</mujoco>
